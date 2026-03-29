@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-apple-bg: #FBFBFD;
+  --color-apple-card: rgba(255, 255, 255, 0.7);
+  --color-apple-border: rgba(0, 0, 0, 0.06);
+  --color-apple-text: #1D1D1F;
+  --color-apple-text-secondary: #86868B;
+  --color-apple-blue: #0071E3;
+  --radius-apple: 20px;
+  --radius-apple-lg: 32px;
+}
+
+@layer base {
+  body {
+    @apply bg-apple-bg text-apple-text antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-2xl bg-apple-card border border-apple-border shadow-[0_8px_32px_rgba(0,0,0,0.04)];
+  }
+
+  .apple-button {
+    @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .apple-button-primary {
+    @apply bg-apple-blue text-white hover:bg-[#0077ED] shadow-[0_4px_12px_rgba(0,113,227,0.2)];
+  }
+
+  .apple-button-secondary {
+    @apply bg-white/80 text-apple-blue border border-apple-border hover:bg-white hover:shadow-md;
+  }
+
+  .apple-input {
+    @apply bg-white/60 border border-apple-border rounded-2xl px-5 py-4 focus:bg-white focus:ring-4 focus:ring-apple-blue/10 transition-all outline-none placeholder:text-gray-400;
+  }
+
+  .apple-card {
+    @apply backdrop-blur-2xl bg-apple-card border border-apple-border shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-apple-lg p-8;
+  }
+
+  .prose-apple {
+    @apply prose-sm text-apple-text leading-relaxed;
+  }
+
+  .prose-apple h1, .prose-apple h2, .prose-apple h3 {
+    @apply text-apple-text font-bold tracking-tight;
+  }
+
+  .prose-apple strong {
+    @apply text-apple-text font-semibold;
+  }
+
+  .thought-block {
+    @apply bg-gray-50/50 border-l-4 border-gray-200 p-4 my-4 rounded-r-xl text-xs text-apple-text-secondary italic;
+  }
+
+  .response-block {
+    @apply my-4;
+  }
+
+  .next-steps-block {
+    @apply bg-blue-50/30 border border-blue-100 p-4 my-4 rounded-2xl text-sm;
+  }
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
